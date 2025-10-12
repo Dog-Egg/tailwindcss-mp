@@ -138,7 +138,11 @@ export default function resolveDefaultsAtRules({ tailwindConfig }) {
       }
     } else if (universals.size) {
       let universalRule = postcss.rule({
-        selectors: ['*', '::before', '::after'],
+        selectors: [
+          // '*', 小程序不支持的选择器
+          '::before',
+          '::after',
+        ],
       })
 
       for (let universal of universals) {

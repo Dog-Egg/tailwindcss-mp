@@ -1944,7 +1944,7 @@ test('important candidates discard rules with irrelevant selectors', async () =>
   let result = await run('@tailwind base', config)
 
   expect(result.css).toMatchInlineSnapshot(`
-    "*, ::before, ::after {
+    "::before, ::after {
         --tw-border-spacing-x: 0;
         --tw-border-spacing-y: 0;
         --tw-translate-x: 0;
