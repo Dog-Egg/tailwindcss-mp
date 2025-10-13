@@ -7,6 +7,7 @@ import resolveDefaultsAtRules from './lib/resolveDefaultsAtRules'
 import collapseAdjacentRules from './lib/collapseAdjacentRules'
 import collapseDuplicateDeclarations from './lib/collapseDuplicateDeclarations'
 import partitionApplyAtRules from './lib/partitionApplyAtRules'
+import adaptMiniPrograms from './lib/adaptMiniPrograms'
 import { createContext } from './lib/setupContextUtils'
 import { issueFlagNotices } from './featureFlags'
 
@@ -52,5 +53,8 @@ export default function processTailwindFeatures(setupContext) {
     resolveDefaultsAtRules(context)(root, result)
     collapseAdjacentRules(context)(root, result)
     collapseDuplicateDeclarations(context)(root, result)
+
+    // 适配小程序
+    adaptMiniPrograms(context)(root, result)
   }
 }
