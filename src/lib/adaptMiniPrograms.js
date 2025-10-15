@@ -6,7 +6,7 @@ export default function adaptMiniPrograms(context) {
     // 转义小程序不支持的选择器字符
     // 例如：.first\:mt-[20px]:first-child -> .first_mt-_20px_:first-child
     root.walkRules((rule) => {
-      rule.selector = rule.selector.replace(/\\[:\[\]]/g, '_')
+      rule.selector = rule.selector.replace(/\\[:\[\]\%]/g, '_')
     })
   }
 }
