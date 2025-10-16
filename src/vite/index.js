@@ -24,5 +24,5 @@ export default function modifyClasses() {
 // 自定义替换规则函数
 function replaceInvalidChars(cls) {
   // 这里按需调整：微信小程序不支持 :, [, ]
-  return cls.replace(/[:\[\]%]/g, '_')
+  return cls.replace(/[:\[\]\%\.\/]/g, '_')
 }
