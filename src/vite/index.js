@@ -1,9 +1,19 @@
 import { invalidChars } from '../lib/adaptMiniPrograms'
+import tailwindcss from '../index'
 
 export default function modifyClasses() {
   return {
     name: 'modify-classes',
     enforce: 'pre',
+    config() {
+      return {
+        css: {
+          postcss: {
+            plugins: [tailwindcss()],
+          },
+        },
+      }
+    },
     transform(code, id) {
       // 仅处理 HTML / Vue / Svelte 文件
       if (!/\.(html|vue|svelte)$/.test(id)) {
