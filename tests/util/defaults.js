@@ -7,6 +7,7 @@ import { css } from './strings'
  */
 export function defaults({ defaultRingColor = `#3b82f680` } = {}) {
   return css`
+    *,
     :before,
     :after,
     ::backdrop {

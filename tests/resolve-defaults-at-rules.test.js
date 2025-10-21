@@ -14,6 +14,7 @@ test('basic utilities', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -63,6 +64,7 @@ test('with pseudo-class variants', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -110,6 +112,7 @@ test('with pseudo-element variants', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -153,6 +156,7 @@ test('with multi-class variants', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -196,6 +200,7 @@ test('with multi-class pseudo-element variants', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -245,6 +250,7 @@ test('with multi-class pseudo-element and pseudo-class variants', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -330,6 +336,7 @@ test('with apply', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -522,6 +529,7 @@ test('with shadows', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
@@ -578,6 +586,7 @@ test('when no utilities that need the defaults are used', async () => {
 
   return run(input, config).then((result) => {
     expect(result.css).toMatchFormattedCss(css`
+      *,
       :before,
       :after,
       ::backdrop {
