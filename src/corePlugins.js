@@ -1363,11 +1363,21 @@ export let corePlugins = {
     ],
   ]),
 
-  space: ({ matchUtilities, addUtilities, theme }) => {
+  space: ({ matchUtilities, addUtilities, theme }, { tailwindConfig }) => {
     matchUtilities(
       {
         'space-x': (value) => {
           value = value === '0' ? '0px' : value
+
+          if (tailwindConfig.miniPrograms) {
+            return {
+              '& > view + view': {
+                '--tw-space-x-reverse': '0',
+                'margin-right': `calc(${value} * var(--tw-space-x-reverse))`,
+                'margin-left': `calc(${value} * calc(1 - var(--tw-space-x-reverse)))`,
+              },
+            }
+          }
 
           return {
             '& > :not([hidden]) ~ :not([hidden])': {
@@ -1379,6 +1389,16 @@ export let corePlugins = {
         },
         'space-y': (value) => {
           value = value === '0' ? '0px' : value
+
+          if (tailwindConfig.miniPrograms) {
+            return {
+              '& > view + view': {
+                '--tw-space-y-reverse': '0',
+                'margin-top': `calc(${value} * calc(1 - var(--tw-space-y-reverse)))`,
+                'margin-bottom': `calc(${value} * var(--tw-space-y-reverse))`,
+              },
+            }
+          }
 
           return {
             '& > :not([hidden]) ~ :not([hidden])': {

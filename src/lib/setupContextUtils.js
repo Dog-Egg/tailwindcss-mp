@@ -822,7 +822,7 @@ function registerPlugins(plugins, context) {
         pluginItem(pluginApi)
       }
     } else {
-      plugin?.(pluginApi)
+      plugin?.(pluginApi, context)
     }
   }
 
