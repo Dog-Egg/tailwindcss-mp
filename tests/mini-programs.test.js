@@ -82,6 +82,7 @@ test('Escape special characters', async () => {
           <div class="w-1/2"></div>
           <div class="space-x-3"></div>
           <div class="space-y-3"></div>
+          <div class="border-b"></div>
         `,
       },
     ],
@@ -108,6 +109,10 @@ test('Escape special characters', async () => {
       --tw-space-y-reverse: 0;
       margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
       margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+    }
+    .border-b {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
     }
     .first_mt-_20rpx_:first-child {
       margin-top: 20rpx;

@@ -1650,25 +1650,131 @@ export let corePlugins = {
     ],
   ]),
 
-  borderWidth: createUtilityPlugin(
-    'borderWidth',
-    [
-      ['border', [['@defaults border-width', {}], 'border-width']],
-      [
-        ['border-x', [['@defaults border-width', {}], 'border-left-width', 'border-right-width']],
-        ['border-y', [['@defaults border-width', {}], 'border-top-width', 'border-bottom-width']],
-      ],
-      [
-        ['border-s', [['@defaults border-width', {}], 'border-inline-start-width']],
-        ['border-e', [['@defaults border-width', {}], 'border-inline-end-width']],
-        ['border-t', [['@defaults border-width', {}], 'border-top-width']],
-        ['border-r', [['@defaults border-width', {}], 'border-right-width']],
-        ['border-b', [['@defaults border-width', {}], 'border-bottom-width']],
-        ['border-l', [['@defaults border-width', {}], 'border-left-width']],
-      ],
-    ],
-    { type: ['line-width', 'length'] }
-  ),
+  borderWidth: ({ matchUtilities, theme }, { tailwindConfig }) => {
+    let transformValue = transformThemeValue('borderWidth')
+    let isMiniPrograms = tailwindConfig?.miniPrograms
+
+    matchUtilities(
+      {
+        border: (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-style'] = 'solid'
+          }
+          return result
+        },
+      },
+      {
+        type: ['line-width', 'length'],
+        values: theme('borderWidth'),
+      }
+    )
+
+    matchUtilities(
+      {
+        'border-x': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-left-width': transformValue(value),
+            'border-right-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-left-style'] = 'solid'
+            result['border-right-style'] = 'solid'
+          }
+          return result
+        },
+        'border-y': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-top-width': transformValue(value),
+            'border-bottom-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-top-style'] = 'solid'
+            result['border-bottom-style'] = 'solid'
+          }
+          return result
+        },
+      },
+      {
+        type: ['line-width', 'length'],
+        values: theme('borderWidth'),
+      }
+    )
+
+    matchUtilities(
+      {
+        'border-s': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-inline-start-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-inline-start-style'] = 'solid'
+          }
+          return result
+        },
+        'border-e': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-inline-end-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-inline-end-style'] = 'solid'
+          }
+          return result
+        },
+        'border-t': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-top-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-top-style'] = 'solid'
+          }
+          return result
+        },
+        'border-r': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-right-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-right-style'] = 'solid'
+          }
+          return result
+        },
+        'border-b': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-bottom-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-bottom-style'] = 'solid'
+          }
+          return result
+        },
+        'border-l': (value) => {
+          let result = {
+            '@defaults border-width': {},
+            'border-left-width': transformValue(value),
+          }
+          if (isMiniPrograms) {
+            result['border-left-style'] = 'solid'
+          }
+          return result
+        },
+      },
+      {
+        type: ['line-width', 'length'],
+        values: theme('borderWidth'),
+      }
+    )
+  },
 
   borderStyle: ({ addUtilities }) => {
     addUtilities({
