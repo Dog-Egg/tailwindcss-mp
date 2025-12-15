@@ -3,14 +3,15 @@
 支持小程序的 Tailwindcss
 
 ## 使用
+
 tailwindcss-mp 与 tailwindcss 的使用方式基本一致，只是在配上稍有不同。
 
-talwindcss.config.js
+talwind.config.js
 
 ```js
 module.exports = {
   miniPrograms: true, // 开启小程序支持
-  content: ["./src/**/*.{html,js,ts,jsx,tsx,vue}"],
+  content: ['./src/**/*.{html,js,ts,jsx,tsx,vue}'],
   theme: {
     extend: {},
   },
@@ -18,7 +19,7 @@ module.exports = {
   corePlugins: {
     preflight: false, // 小程序不需要 preflight
   },
-};
+}
 ```
 
 为了兼容小程序，需要将原有的 tailwindcss postcss 插件改为新的插件。
