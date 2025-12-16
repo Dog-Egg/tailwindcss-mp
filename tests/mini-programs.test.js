@@ -126,6 +126,11 @@ test('vite plugin', async () => {
       <div class="first:mt-[20rpx] hover:bg-gray-100"></div>
       <div class="h-[80.5%]"></div>
       <div class="w-1/2"></div>
+
+      <!-- vue language -->
+      <div :class="['space-x-3 w-1/2', 'h-[80.5%]']"></div>
+      <div :class="isActive ? 'w-1/2' : 'w-1/3'"></div>
+      <div :class="{ 'w-1/2': isActive, 'w-1/3': !isActive }"></div>
     </template>
   `
   expect(modifyClasses().transform(source, 'App.vue')).toMatchInlineSnapshot(`
@@ -134,6 +139,11 @@ test('vite plugin', async () => {
           <div class="first_mt-_20rpx_ hover_bg-gray-100"></div>
           <div class="h-_80_5__"></div>
           <div class="w-1_2"></div>
+
+          <!-- vue language -->
+          <div :class="['space-x-3 w-1_2', 'h-_80_5__']"></div>
+          <div :class="isActive ? 'w-1_2' : 'w-1_3'"></div>
+          <div :class="{ 'w-1_2': isActive, 'w-1_3': !isActive }"></div>
         </template>
       "
   `)
