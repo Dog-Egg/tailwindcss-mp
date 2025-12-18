@@ -83,6 +83,7 @@ test('Escape special characters', async () => {
           <div class="space-x-3"></div>
           <div class="space-y-3"></div>
           <div class="border-b"></div>
+          <div class="bg-[#6b2c3e]"></div>
         `,
       },
     ],
@@ -113,6 +114,10 @@ test('Escape special characters', async () => {
     .border-b {
       border-bottom-width: 1px;
       border-bottom-style: solid;
+    }
+    .bg-__6b2c3e_ {
+      --tw-bg-opacity: 1;
+      background-color: rgb(107 44 62 / var(--tw-bg-opacity, 1));
     }
     .first_mt-_20rpx_:first-child {
       margin-top: 20rpx;

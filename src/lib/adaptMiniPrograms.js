@@ -1,4 +1,4 @@
-export const invalidChars = ':[]./%'
+export const invalidChars = ':[]./%#'
 
 export default function adaptMiniPrograms(context) {
   const config = context.tailwindConfig
