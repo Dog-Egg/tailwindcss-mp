@@ -627,7 +627,7 @@ describe('Build command', () => {
 
     expect(dedent(combined)).toEqual(
       dedent(`
-          tailwindcss v${version}
+          tailwindcss-mp v${version}
 
           Usage:
              tailwindcss build [options]
@@ -728,7 +728,7 @@ describe('Init command', () => {
 
     expect(dedent(combined)).toEqual(
       dedent(`
-        tailwindcss v${version}
+        tailwindcss-mp v${version}
 
         Usage:
            tailwindcss init [options]

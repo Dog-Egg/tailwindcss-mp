@@ -10,7 +10,8 @@
   "homepage": "https://tailwindcss.com",
   "bin": {
     "tailwind": "lib/cli.js",
-    "tailwindcss": "lib/cli.js"
+    "tailwindcss": "lib/cli.js",
+    "tailwindcss-mp": "lib/cli.js"
   },
   "scripts": {
     "prebuild": "npm run generate && rimraf lib",
