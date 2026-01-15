@@ -31,7 +31,7 @@ vite.config.js
 ```diff
   import { defineConfig } from "vite";
 - import tailwindcss from "tailwindcss";
-+ import tailwindcss from "tailwindcss/lib/vite";
++ import tailwindcss from "tailwindcss-mp/lib/vite";
 
   export default defineConfig({
 +   plugins: [tailwindcss()],
