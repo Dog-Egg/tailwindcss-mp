@@ -34,7 +34,7 @@ vite.config.js
 + import tailwindcss from "tailwindcss-mp/vite";
 
   export default defineConfig({
-+   plugins: [tailwindcss()],
++   plugins: [tailwindcss()],   // 如果使用 uniapp，需要将 tailwindcss 插件放在 uni 之前。
     css: {
       postcss: {
 -       plugins: [tailwindcss()],
