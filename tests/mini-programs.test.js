@@ -84,6 +84,7 @@ test('Escape special characters', async () => {
           <div class="space-y-3"></div>
           <div class="border-b"></div>
           <div class="bg-[#6b2c3e]"></div>
+          <div class="scale-50"></div>
         `,
       },
     ],
@@ -100,6 +101,11 @@ test('Escape special characters', async () => {
     }
     .w-1_2 {
       width: 50%;
+    }
+    .scale-50 {
+      --tw-scale-x: 0.5;
+      --tw-scale-y: 0.5;
+      transform: scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     }
     .space-x-3 > view + view {
       --tw-space-x-reverse: 0;
