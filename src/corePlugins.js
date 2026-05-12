@@ -539,8 +539,6 @@ let cssTransformValue = [
   'scaleY(var(--tw-scale-y))',
 ].join(' ')
 
-let scaleTransformValue = ['scaleX(var(--tw-scale-x))', 'scaleY(var(--tw-scale-y))'].join(' ')
-
 let cssFilterValue = [
   'var(--tw-blur)',
   'var(--tw-brightness)',
@@ -969,35 +967,31 @@ export let corePlugins = {
     ],
     { supportsNegativeValues: true }
   ),
-  scale: function () {
-    let isMiniPrograms = arguments[1].tailwindConfig?.miniPrograms
-
-    createUtilityPlugin(
-      'scale',
+  scale: createUtilityPlugin(
+    'scale',
+    [
       [
+        'scale',
         [
-          'scale',
-          [
-            ['@defaults transform', {}],
-            '--tw-scale-x',
-            '--tw-scale-y',
-            ['transform', isMiniPrograms ? scaleTransformValue : cssTransformValue],
-          ],
-        ],
-        [
-          [
-            'scale-x',
-            [['@defaults transform', {}], '--tw-scale-x', ['transform', cssTransformValue]],
-          ],
-          [
-            'scale-y',
-            [['@defaults transform', {}], '--tw-scale-y', ['transform', cssTransformValue]],
-          ],
+          ['@defaults transform', {}],
+          '--tw-scale-x',
+          '--tw-scale-y',
+          ['transform', cssTransformValue],
         ],
       ],
-      { supportsNegativeValues: true }
-    )(...arguments)
-  },
+      [
+        [
+          'scale-x',
+          [['@defaults transform', {}], '--tw-scale-x', ['transform', cssTransformValue]],
+        ],
+        [
+          'scale-y',
+          [['@defaults transform', {}], '--tw-scale-y', ['transform', cssTransformValue]],
+        ],
+      ],
+    ],
+    { supportsNegativeValues: true }
+  ),
 
   transform: ({ addDefaults, addUtilities }) => {
     addDefaults('transform', {
