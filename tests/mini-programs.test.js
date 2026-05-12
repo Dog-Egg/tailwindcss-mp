@@ -14,6 +14,7 @@ test('Remove Selector *', async () => {
   `
   const result = await run(input, config)
   return expect(result.css).toMatchFormattedCss(css`
+    view,
     :before,
     :after,
     ::backdrop {

@@ -139,7 +139,7 @@ export default function resolveDefaultsAtRules({ tailwindConfig }) {
     } else if (universals.size) {
       let universalRule = postcss.rule({
         selectors: tailwindConfig.miniPrograms
-          ? ['::before', '::after']
+          ? ['view', '::before', '::after']
           : ['*', '::before', '::after'],
       })
 
