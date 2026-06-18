@@ -85,6 +85,7 @@ test('Escape special characters', async () => {
           <div class="space-y-3"></div>
           <div class="border-b"></div>
           <div class="bg-[#6b2c3e]"></div>
+          <div class="!w-full"></div>
         `,
       },
     ],
@@ -98,6 +99,9 @@ test('Escape special characters', async () => {
   return expect(result.css).toMatchFormattedCss(css`
     .h-_80_5__ {
       height: 80.5%;
+    }
+    ._w-full {
+      width: 100% !important;
     }
     .w-1_2 {
       width: 50%;
@@ -132,6 +136,7 @@ test('vite plugin', async () => {
       <div class="first:mt-[20rpx] hover:bg-gray-100"></div>
       <div class="h-[80.5%]"></div>
       <div class="w-1/2"></div>
+      <div class="!w-full"></div>
 
       <!-- vue language -->
       <div :class="['space-x-3 w-1/2', 'h-[80.5%]']"></div>
@@ -145,6 +150,7 @@ test('vite plugin', async () => {
           <div class="first_mt-_20rpx_ hover_bg-gray-100"></div>
           <div class="h-_80_5__"></div>
           <div class="w-1_2"></div>
+          <div class="_w-full"></div>
 
           <!-- vue language -->
           <div :class="['space-x-3 w-1_2', 'h-_80_5__']"></div>
