@@ -86,6 +86,7 @@ test('Escape special characters', async () => {
           <div class="border-b"></div>
           <div class="bg-[#6b2c3e]"></div>
           <div class="!w-full"></div>
+          <div class="shadow-[0_3px_5px_rgba(15,23,42,0.14),0_2px_4px_rgba(15,23,42,0.08)]"></div>
         `,
       },
     ],
@@ -124,6 +125,12 @@ test('Escape special characters', async () => {
       --tw-bg-opacity: 1;
       background-color: rgb(107 44 62 / var(--tw-bg-opacity, 1));
     }
+    .shadow-_0_3px_5px_rgba_15_23_42_0_14__0_2px_4px_rgba_15_23_42_0_08__ {
+      --tw-shadow: 0 3px 5px #0f172a24, 0 2px 4px #0f172a14;
+      --tw-shadow-colored: 0 3px 5px var(--tw-shadow-color), 0 2px 4px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+        var(--tw-shadow);
+    }
     .first_mt-_20rpx_:first-child {
       margin-top: 20rpx;
     }
@@ -137,6 +144,7 @@ test('vite plugin', async () => {
       <div class="h-[80.5%]"></div>
       <div class="w-1/2"></div>
       <div class="!w-full"></div>
+      <div class="shadow-[0_3px_5px_rgba(15,23,42,0.14),0_2px_4px_rgba(15,23,42,0.08)]"></div>
 
       <!-- vue language -->
       <div :class="['space-x-3 w-1/2', 'h-[80.5%]']"></div>
@@ -151,6 +159,7 @@ test('vite plugin', async () => {
           <div class="h-_80_5__"></div>
           <div class="w-1_2"></div>
           <div class="_w-full"></div>
+          <div class="shadow-_0_3px_5px_rgba_15_23_42_0_14__0_2px_4px_rgba_15_23_42_0_08__"></div>
 
           <!-- vue language -->
           <div :class="['space-x-3 w-1_2', 'h-_80_5__']"></div>
