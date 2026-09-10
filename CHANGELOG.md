@@ -7,9 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
 
-## [3.4.18] - 2024-10-01
+- Ensure classes are extracted when a variant precedes an arbitrary variant containing a quoted attribute selector (e.g. `focus-visible:[&:not([aria-selected="true"])]:bg-red-500`) ([#20374](https://github.com/tailwindlabs/tailwindcss/pull/20374))
+- Fix negation of `theme()` in arbitrary values (e.g. `-m-[theme(margin.1)]`) ([#19928](https://github.com/tailwindlabs/tailwindcss/pull/19928))
+
+## [3.4.19] - 2025-12-10
+
+### Fixed
+
+- Don’t break `sibling-*()` functions when used inside `calc(…)` ([#19335](https://github.com/tailwindlabs/tailwindcss/pull/19335))
+
+## [3.4.18] - 2025-10-01
 
 ### Fixed
 
@@ -2487,7 +2496,8 @@ No release notes
 
 - Everything!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss/compare/v3.4.18...v3
+[unreleased]: https://github.com/tailwindlabs/tailwindcss/compare/v3.4.19...v3
+[3.4.19]: https://github.com/tailwindlabs/tailwindcss/compare/v3.4.18...v3.4.19
 [3.4.18]: https://github.com/tailwindlabs/tailwindcss/compare/v3.4.17...v3.4.18
 [3.4.17]: https://github.com/tailwindlabs/tailwindcss/compare/v3.4.16...v3.4.17
 [3.4.16]: https://github.com/tailwindlabs/tailwindcss/compare/v3.4.15...v3.4.16

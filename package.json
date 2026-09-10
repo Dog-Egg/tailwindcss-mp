@@ -30,6 +30,9 @@
     "release-notes": "node ./scripts/release-notes.js",
     "prepublishOnly": "npm install --force && npm run build"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "files": [
     "src/*",
     "cli/*",
