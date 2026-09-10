@@ -107,12 +107,15 @@ export default function modifyClasses() {
       let transformed = code
 
       // 替换 class="..." (但不匹配 :class)
-      transformed = transformed.replace(/(^|[^:])(\s*)class\s*=\s*"([^"]+)"/g, (match, before, space, classValue) => {
-        return `${before}${space}class="${escapeClassString(classValue)}"`
-      })
+      transformed = transformed.replace(
+        /(^|[^:])(\s*)class\s*=\s*"([^"]+)"/g,
+        (_match, before, space, classValue) => {
+          return `${before}${space}class="${escapeClassString(classValue)}"`
+        }
+      )
 
       // 使用 AST 解析 :class 绑定中的 JavaScript 表达式
-      transformed = transformed.replace(/:class\s*=\s*"([^"]+)"/g, (match, expression) => {
+      transformed = transformed.replace(/:class\s*=\s*"([^"]+)"/g, (_match, expression) => {
         const escapedExpression = replaceStringLiterals(expression, escapeClassString)
         return `:class="${escapedExpression}"`
       })
